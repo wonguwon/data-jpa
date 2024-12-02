@@ -1,4 +1,4 @@
-package com.study.data_jpa.entity;
+package study.datajpa.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,6 +7,9 @@ import lombok.*;
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(of = {"id", "username", "age"}) //가급적 내부 필드만(연관관계 없는 필드만)
+@NamedQuery(
+        name="Member.findByUsername",
+        query="select m from Member m where m.username = :username")
 public class Member {
 
     @Id

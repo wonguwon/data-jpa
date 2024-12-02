@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="study.datajpa.repository.MemberRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-02T14:55:08" hostname="DESKTOP-98E4J42" time="0.53">
+  <properties/>
+  <testcase name="findByNames()" classname="study.datajpa.repository.MemberRepositoryTest" time="0.53"/>
+  <system-out><![CDATA[23:55:03.541 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [study.datajpa.repository.MemberRepositoryTest]: MemberRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:55:03.654 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration study.datajpa.DataJpaApplication for test class study.datajpa.repository.MemberRepositoryTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.0)
+
+2024-12-02T23:55:04.087+09:00  INFO 14092 --- [    Test worker] s.d.repository.MemberRepositoryTest      : Starting MemberRepositoryTest using Java 17.0.13 with PID 14092 (started by xxojiwon in C:\workspace\data-jpa)
+2024-12-02T23:55:04.088+09:00  INFO 14092 --- [    Test worker] s.d.repository.MemberRepositoryTest      : No active profile set, falling back to 1 default profile: "default"
+2024-12-02T23:55:04.632+09:00  INFO 14092 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-02T23:55:04.690+09:00  INFO 14092 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 2 JPA repository interfaces.
+2024-12-02T23:55:05.055+09:00  INFO 14092 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-02T23:55:05.126+09:00  INFO 14092 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-02T23:55:05.165+09:00  INFO 14092 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-02T23:55:05.487+09:00  INFO 14092 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-02T23:55:05.521+09:00  INFO 14092 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-02T23:55:05.584+09:00  INFO 14092 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:tcp://localhost/~/datajpa user=SA
+2024-12-02T23:55:05.585+09:00  INFO 14092 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-02T23:55:05.645+09:00  INFO 14092 --- [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-02T23:55:06.405+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    create global temporary table HTE_member(age integer, rn_ integer not null, member_id bigint, team_id bigint, username varchar(255), primary key (rn_)) TRANSACTIONAL
+2024-12-02T23:55:06.409+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    create global temporary table HTE_team(rn_ integer not null, team_id bigint, name varchar(255), primary key (rn_)) TRANSACTIONAL
+2024-12-02T23:55:06.541+09:00  INFO 14092 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-02T23:55:06.792+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    drop table if exists member cascade 
+2024-12-02T23:55:06.793+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    drop table if exists team cascade 
+2024-12-02T23:55:06.794+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    drop sequence if exists member_seq
+2024-12-02T23:55:06.795+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    drop sequence if exists team_seq
+2024-12-02T23:55:06.799+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    create sequence member_seq start with 1 increment by 50
+2024-12-02T23:55:06.800+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    create sequence team_seq start with 1 increment by 50
+2024-12-02T23:55:06.803+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    create table member (
+        age integer not null,
+        member_id bigint not null,
+        team_id bigint,
+        username varchar(255),
+        primary key (member_id)
+    )
+2024-12-02T23:55:06.804+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    create table team (
+        team_id bigint not null,
+        name varchar(255),
+        primary key (team_id)
+    )
+2024-12-02T23:55:06.805+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    alter table if exists member 
+       add constraint FKcjte2jn9pvo9ud2hyfgwcja0k 
+       foreign key (team_id) 
+       references team
+2024-12-02T23:55:06.809+09:00  INFO 14092 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T23:55:06.975+09:00  WARN 14092 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-02T23:55:07.559+09:00  INFO 14092 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-02T23:55:08.254+09:00  INFO 14092 --- [    Test worker] s.d.repository.MemberRepositoryTest      : Started MemberRepositoryTest in 4.452 seconds (process running for 5.498)
+2024-12-02T23:55:08.666+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        next value for member_seq
+2024-12-02T23:55:08.692+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        next value for member_seq
+2024-12-02T23:55:08.748+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member
+        (age, team_id, username, member_id) 
+    values
+        (?, ?, ?, ?)
+2024-12-02T23:55:08.751+09:00 TRACE 14092 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:INTEGER) <- [10]
+2024-12-02T23:55:08.751+09:00 TRACE 14092 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [null]
+2024-12-02T23:55:08.751+09:00 TRACE 14092 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [AAA]
+2024-12-02T23:55:08.751+09:00 TRACE 14092 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:BIGINT) <- [1]
+2024-12-02T23:55:08.753+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member
+        (age, team_id, username, member_id) 
+    values
+        (?, ?, ?, ?)
+2024-12-02T23:55:08.753+09:00 TRACE 14092 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:INTEGER) <- [20]
+2024-12-02T23:55:08.753+09:00 TRACE 14092 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:BIGINT) <- [null]
+2024-12-02T23:55:08.753+09:00 TRACE 14092 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [BBB]
+2024-12-02T23:55:08.754+09:00 TRACE 14092 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:BIGINT) <- [2]
+2024-12-02T23:55:08.765+09:00 DEBUG 14092 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        m1_0.member_id,
+        m1_0.age,
+        m1_0.team_id,
+        m1_0.username 
+    from
+        member m1_0 
+    where
+        m1_0.username in (?, ?)
+2024-12-02T23:55:08.766+09:00 TRACE 14092 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [AAA]
+2024-12-02T23:55:08.766+09:00 TRACE 14092 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) <- [BBB]
+member = Member(id=1, username=AAA, age=10)
+member = Member(id=2, username=BBB, age=20)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

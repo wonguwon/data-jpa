@@ -1,4 +1,4 @@
-package com.study.data_jpa.controller;
+package study.datajpa.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
